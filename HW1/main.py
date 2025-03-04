@@ -1,5 +1,6 @@
 import json
 import random
+from pathlib import Path
 from ckiptagger import WS
 from opencc import OpenCC
 
@@ -15,6 +16,9 @@ with open(DICT_PATH, "r", encoding="utf-8") as f:
 # 讀取 "活網缺愛複製文" json檔
 with open("HuoWang_copypasta.json", "r", encoding="utf-8") as f:
     data = json.load(f)
+
+#建立 result folder
+Path("./result").mkdir(parents=True, exist_ok=True)
 
 # 隨機抽選一條複製文
 selected_text = random.choice(data)["content"]
