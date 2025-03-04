@@ -1,1 +1,0 @@
-# 2025-Development-Of-Intelligent-Medical-Information-System
