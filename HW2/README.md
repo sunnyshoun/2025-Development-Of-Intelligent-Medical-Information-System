@@ -1,8 +1,8 @@
-# Readme - CKIP API Text Processor
+# Readme - Mi2S API Text Processor
 
 ## 簡介
 
-本專案使用 CKIP API 來進行詞性標註與命名實體辨識，並將分析結果輸出為 Markdown 格式。
+本專案使用 Mi2S API 來進行詞性標註與命名實體辨識，並將分析結果輸出為 Markdown 格式。
 
 ## 環境需求
 
@@ -52,7 +52,7 @@ python main.py input.txt --output result/
 
 ## 主要功能
 
-1. **API 請求**：向 CKIP API 發送請求，回傳詞性標註與命名實體辨識結果。
+1. **API 請求**：向 Mi2S API 發送請求，回傳詞性標註與命名實體辨識結果。
 2. **實體分類**：
    - `People`：人名
    - `Time`：時間
