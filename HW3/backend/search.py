@@ -2,7 +2,7 @@ import aiohttp
 import asyncio
 import os
 from dotenv import load_dotenv
-from duckduckgo_search import DDGS  # 使用同步版本
+from duckduckgo_search import DDGS
 
 load_dotenv(override=True)
 
@@ -27,14 +27,12 @@ async def search_google(query):
 
 def search_duckduckgo(query):
     with DDGS() as ddgs:
-        results = ddgs.text(keywords=query, max_results=10)  # 同步搜尋，限制最多 10 個結果
+        results = ddgs.text(keywords=query, max_results=10)
         print("DuckDuckGo API Response:", results)
         return [{"title": item["title"], "link": item["href"], "source": "DuckDuckGo"} for item in results]
 
 async def search_meta(query):
-    # Google 使用非同步，直接等待結果
     google_results = await search_google(query)
-    # DuckDuckGo 使用同步，但包裝成非同步任務
     loop = asyncio.get_event_loop()
     duckduckgo_results = await loop.run_in_executor(None, search_duckduckgo, query)
     
